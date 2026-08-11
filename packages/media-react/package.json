@@ -1,0 +1,25 @@
+{
+  "name": "@media-sdk/media-react",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "require": "./dist/index.cjs" } },
+  "files": ["dist"],
+  "scripts": { "build": "tsup", "docs": "typedoc", "test": "vitest run", "typecheck": "tsc --noEmit" },
+  "dependencies": { "@media-sdk/media-core": "workspace:*" },
+  "peerDependencies": { "react": ">=18.2 <20" },
+  "devDependencies": {
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "jsdom": "^26.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.5.0",
+    "typedoc": "^0.28.20",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,63 @@
+name: Deploy demos and documentation
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm boundaries
+      - name: Check deployment secret
+        env:
+          VITE_PEXELS_API_KEY: ${{ secrets.VITE_PEXELS_API_KEY }}
+        run: test -n "$VITE_PEXELS_API_KEY"
+      - run: pnpm --filter @media-sdk/web-app build
+        env:
+          VITE_PEXELS_API_KEY: ${{ secrets.VITE_PEXELS_API_KEY }}
+      - run: pnpm docs
+      - run: pnpm --filter @media-sdk/media-ui-react build-storybook
+        env:
+          STORYBOOK_DISABLE_TELEMETRY: "1"
+      - name: Assemble Pages site
+        run: |
+          mkdir -p _site/app _site/docs _site/storybook
+          cp -R apps/web-app/dist/. _site/app/
+          cp -R docs/. _site/docs/
+          cp deployment/docs-index.html _site/docs/index.html
+          cp -R packages/media-ui-react/storybook-static/. _site/storybook/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

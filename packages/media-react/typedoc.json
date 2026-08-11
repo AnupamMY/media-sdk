@@ -1,0 +1,9 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts"],
+  "out": "../../docs/media-react",
+  "name": "@media-sdk/media-react",
+  "readme": "none",
+  "excludePrivate": true,
+  "excludeInternal": true
+}

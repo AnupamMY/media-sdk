@@ -1,0 +1,10 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts"],
+  "out": "../../docs/media-core",
+  "name": "@media-sdk/media-core",
+  "readme": "none",
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "validation": { "notExported": false }
+}

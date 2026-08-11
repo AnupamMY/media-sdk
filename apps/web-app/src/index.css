@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply m-0 bg-slate-50 antialiased; }
+  button, a { @apply cursor-pointer; }
+  button, input { font: inherit; }
+}

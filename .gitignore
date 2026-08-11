@@ -1,0 +1,10 @@
+node_modules/
+dist/
+docs/
+storybook-static/
+coverage/
+*.tsbuildinfo
+pnpm-debug.log*
+.env
+.env.local
+.env.*.local

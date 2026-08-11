@@ -1,0 +1,19 @@
+{
+  "name": "media-sdk",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "boundaries": "depcruise packages apps --config dependency-cruiser.config.cjs",
+    "docs": "pnpm --filter @media-sdk/media-core docs && pnpm --filter @media-sdk/media-react docs && pnpm --filter @media-sdk/media-native docs"
+  },
+  "devDependencies": {
+    "dependency-cruiser": "^16.10.4",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

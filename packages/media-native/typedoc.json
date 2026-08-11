@@ -1,0 +1,9 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts"],
+  "out": "../../docs/media-native",
+  "name": "@media-sdk/media-native",
+  "readme": "none",
+  "excludePrivate": true,
+  "excludeInternal": true
+}
