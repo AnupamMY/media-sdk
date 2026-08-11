@@ -38,13 +38,13 @@ The deployment requires a repository Actions secret named `VITE_PEXELS_API_KEY` 
 
 This repository is a pnpm workspace. The web app is located at `apps/web-app` and depends on other workspace packages. To deploy the web app on Vercel, use the following settings:
 
-- Project Root: repository root (leave empty)
+- Project Root: `apps/web-app`
 - Install Command: `pnpm install --frozen-lockfile`
 - Build Command: `pnpm --filter @media-sdk/web-app... build` (the trailing `...` builds workspace dependencies first)
-- Output Directory: `apps/web-app/dist`
+- Output Directory: `dist`
 - Node version: use Node 20 (there is an .nvmrc at the repo root)
 
-The root `vercel.json` declares the Vite framework, frozen pnpm install, filtered web-app build, and `apps/web-app/dist` output. If you configure overrides in the Vercel UI, keep them identical to the settings above.
+`apps/web-app/vercel.json` declares the Vite framework, frozen pnpm install, dependency-aware filtered build, and `dist` output. Enable **Include source files outside the Root Directory in the Build Step** so Vercel includes the workspace packages consumed by the app. If you configure overrides in the Vercel UI, keep them identical to the settings above.
 
 ### Environment variables
 

@@ -3,6 +3,6 @@
   "framework": "vite",
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm --filter @media-sdk/web-app... build",
-  "outputDirectory": "apps/web-app/dist",
+  "outputDirectory": "dist",
   "ignoreCommand": "exit 1"
 }
