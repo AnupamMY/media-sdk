@@ -44,7 +44,7 @@ This repository is a pnpm workspace. The web app is located at `apps/web-app` an
 - Output Directory: `apps/web-app/dist`
 - Node version: use Node 20 (there is an .nvmrc at the repo root)
 
-We include a project-config file `vercel.json` that targets `apps/web-app/package.json` and uses the static-build builder. If you prefer the Vercel UI to configure these settings, set the commands above in the Project Settings.
+The root `vercel.json` declares the Vite framework, frozen pnpm install, filtered web-app build, and `apps/web-app/dist` output. If you configure overrides in the Vercel UI, keep them identical to the settings above.
 
 ### Environment variables
 
