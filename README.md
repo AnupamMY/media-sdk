@@ -40,7 +40,7 @@ This repository is a pnpm workspace. The web app is located at `apps/web-app` an
 
 - Project Root: repository root (leave empty)
 - Install Command: `pnpm install --frozen-lockfile`
-- Build Command: `pnpm --filter @media-sdk/web-app build`
+- Build Command: `pnpm --filter @media-sdk/web-app... build` (the trailing `...` builds workspace dependencies first)
 - Output Directory: `apps/web-app/dist`
 - Node version: use Node 20 (there is an .nvmrc at the repo root)
 
