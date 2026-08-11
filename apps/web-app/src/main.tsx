@@ -4,10 +4,11 @@ import { MediaProvider } from "@media-sdk/media-react";
 import { App } from "./App";
 import "./index.css";
 
+
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Missing #root element.");
 
-const apiKey = import.meta.env.VITE_PEXELS_API_KEY || "f2qTKVj3lTVmpX9hgZDi0pNZkyjH3hvwObl0jGKExkV4Z4dktixUMyjd";
+const apiKey =  "f2qTKVj3lTVmpX9hgZDi0pNZkyjH3hvwObl0jGKExkV4Z4dktixUMyjd";
 const root = createRoot(rootElement);
 
 root.render(
