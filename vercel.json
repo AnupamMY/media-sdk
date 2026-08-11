@@ -1,8 +1,10 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "vite",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm --filter @media-sdk/web-app build",
-  "outputDirectory": "apps/web-app/dist",
-  "ignoreCommand": "exit 1"
+  "version": 2,
+  "builds": [
+    {
+      "src": "apps/web-app/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ]
 }
