@@ -1,5 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": { "jsx": "react-jsx", "types": ["vite/client"] },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@media-sdk/media-core": ["../../packages/media-core/src/index.ts"],
+      "@media-sdk/media-react": ["../../packages/media-react/src/index.ts"],
+      "@media-sdk/media-ui-react": ["../../packages/media-ui-react/src/index.ts"]
+    }
+  },
   "include": ["src", "vite.config.ts", "vitest.config.ts"]
 }
