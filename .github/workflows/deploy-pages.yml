@@ -28,10 +28,6 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm boundaries
-      - name: Check deployment secret
-        env:
-          VITE_PEXELS_API_KEY: ${{ secrets.VITE_PEXELS_API_KEY }}
-        run: test -n "$VITE_PEXELS_API_KEY"
       - run: pnpm --filter @media-sdk/web-app build
         env:
           VITE_PEXELS_API_KEY: ${{ secrets.VITE_PEXELS_API_KEY }}
