@@ -7,3 +7,14 @@
   button, a { @apply cursor-pointer; }
   button, input { font: inherit; }
 }
+
+@layer utilities {
+  .scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
