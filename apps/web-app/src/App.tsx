@@ -37,7 +37,7 @@ export function App() {
         <div className="mt-6 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <form className="flex w-full max-w-2xl items-center rounded-xl border border-slate-300 bg-white p-1.5 shadow-sm focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-100" onSubmit={(event) => { event.preventDefault(); setQuery(draftQuery.trim() || "nature"); }}>
             <label className="sr-only" htmlFor="media-search">Search Pexels</label>
-            <input className="min-w-0 flex-1 border-0 bg-transparent px-3 py-2 outline-none placeholder:text-slate-400" id="media-search" placeholder="Search photos and videos" value={draftQuery} onChange={(event) => setDraftQuery(event.target.value)} />
+            <input className="min-w-0 flex-1 border-0 bg-transparent px-3 py-2 text-black outline-none placeholder:text-black" id="media-search" maxLength={50} placeholder="Search photos and videos" value={draftQuery} onChange={(event) => setDraftQuery(event.target.value)} />
             <button className="shrink-0 rounded-lg bg-blue-700 px-5 py-2 font-semibold text-white transition hover:bg-blue-800" type="submit">Search</button>
           </form>
           <div className="inline-flex w-fit rounded-xl bg-white/10 p-1" aria-label="Result view">
